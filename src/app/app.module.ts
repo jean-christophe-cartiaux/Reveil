@@ -3,14 +3,30 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ConnectionComponent } from './pages/connection/connection.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { SpotifyComponent } from './pages/spotify/spotify.component';
+import { AccueilComponent } from './pages/accueil/accueil.component';
+import { CreatAccountComponent } from './pages/creat-account/creat-account.component';
+import { ProfilComponent } from './pages/profil/profil.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ConnectionComponent,
+    NavbarComponent,
+    SpotifyComponent,
+    AccueilComponent,
+    CreatAccountComponent,
+    ProfilComponent,
+    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
