@@ -9,6 +9,6 @@
       <input type="password" class="form-control" id="floatingPassword" placeholder="Password" autocomplete="off" [(ngModel)]="values.pswd">
       <label for="floatingPassword">Password</label>
     </div>
-    <button type="button" class="btn btn-outline-primary" (click)="send()">Login</button>
+    <button type="button" class="btn btn-outline-primary" *ngIf="!isConnect" (click)="send()"(click)=" connected()">Login</button>
     <button type="button" class="btn btn-outline-secondary" routerLink="/creat">Create Account  </button>
 

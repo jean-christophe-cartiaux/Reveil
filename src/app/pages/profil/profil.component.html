@@ -1,1 +1,8 @@
-<p>profil works!</p>
+<div >
+<label for="heureReveil">Heure du réveil :</label>
+<input type="time" id="heureReveil" [(ngModel)]="heureReveil" (change)="mettreAJourHeure()" />
+<button type="button" class="btn btn-outline-primary">Ajouter</button>
+</div>
+
+<br>
+<button type="button" class="btn btn-outline-primary" routerLink="/accueil" >Disconnect</button>

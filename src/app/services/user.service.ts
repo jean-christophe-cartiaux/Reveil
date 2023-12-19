@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observer } from 'rxjs';
+import { Observer, Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { ConnectedUsers, LoginUsers ,} from '../models/user/user.module';
@@ -13,6 +13,10 @@ import { User } from '../models/user/user.module';
   providedIn: 'root'
 })
 export class UserService {
+
+  isConnect:boolean =false
+  mySubject:Subject<boolean> = new Subject<boolean>()
+
   constructor(private _client:HttpClient) 
   { 
 
@@ -30,6 +34,21 @@ export class UserService {
     console.log(myvalue);
     
     return this._client.post<ConnectedUsers>('https://localhost:7134/api/Users/login', myvalue); 
+  }
+
+  IsConnect()
+  {
+    this.mySubject.next(this.isConnect)
+  }
+  connected()
+  {
+    this.isConnect =true
+    this.IsConnect()
+  }
+  disconnect()
+  {
+    this.isConnect = false
+    this.IsConnect()
   }
 
   
