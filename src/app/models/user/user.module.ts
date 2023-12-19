@@ -4,10 +4,19 @@ export interface User{
   prenom:string
   nom : string 
   email : string 
+  categorie:string
 }
-export interface ConnectedUser {
+export interface LoginUsers {
   
   email : string 
   pswd : string 
 
+}
+
+export interface ConnectedUsers{  
+  pseudo : string
+  prenom:string
+  nom : string 
+  email : string 
+  categorie:string
 }

@@ -10,6 +10,7 @@ import { AccueilComponent } from './pages/accueil/accueil.component';
 import { CreatAccountComponent } from './pages/creat-account/creat-account.component';
 import { ProfilComponent } from './pages/profil/profil.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

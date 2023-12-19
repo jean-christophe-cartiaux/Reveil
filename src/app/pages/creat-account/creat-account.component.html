@@ -4,35 +4,35 @@
       
       <div class="form-group">
         <label for="exampleInputEmail1" class="form-label mt-4">Email address</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"[(ngModel)]="values.email" [ngModelOptions]="{standalone: true}">
         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
       </div>
       <div class="form-group">
         <label for="exampleInputPassword1" class="form-label mt-4">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" autocomplete="off">
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" autocomplete="off"[(ngModel)]="values.pswd"[ngModelOptions]="{standalone: true}">
       </div>     
       
       <div class="form-group">
         <label for="input" class="form-label mt-4">Pseudo</label>
-        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Pseudo" autocomplete="off">
+        <input type="text" class="form-control" id="exampleInputPassword2" placeholder="Pseudo" autocomplete="off"[(ngModel)]="values.pseudo"[ngModelOptions]="{standalone: true}">
       </div>      
       
       <div class="form-group">
         <label for="input" class="form-label mt-4">Nom</label>
-        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Nom" autocomplete="off">
+        <input type="text" class="form-control" id="exampleInputPassword3" placeholder="Nom" autocomplete="off"[(ngModel)]="values.nom"[ngModelOptions]="{standalone: true}">
       </div>
 
       <div class="form-group">
         <label for="input" class="form-label mt-4">Prénom</label>
-        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Prenom" autocomplete="off">
+        <input type="text" class="form-control" id="exampleInputPassword4" placeholder="Prenom" autocomplete="off"[(ngModel)]="values.prenom"[ngModelOptions]="{standalone: true}">
       </div>
 
       <div class="form-group">
         <label for="input" class="form-label mt-4">Catégorie de musique ?</label>
-        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Musique" autocomplete="off">
+        <input type="text" class="form-control" id="exampleInputPassword5" placeholder="Musique" autocomplete="off"[(ngModel)]="values.categorie"[ngModelOptions]="{standalone: true}">
       </div>
     </fieldset>
       
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary"(click)="sende()">Submit</button>
   
   </form>

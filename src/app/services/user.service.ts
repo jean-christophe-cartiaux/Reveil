@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { environment } from '../environment';
+import { Observer } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { ConnectedUser ,} from '../models/user/user.module';
+import { ConnectedUsers, LoginUsers ,} from '../models/user/user.module';
 import { Observable } from 'rxjs';
 import { HttpHandler } from '@angular/common/http';
 import { User } from '../models/user/user.module';
@@ -18,15 +18,21 @@ export class UserService {
 
   }
 
-  public get() : Observable<User[]>
+  public register(values:User) : Observable<ConnectedUsers>
   {
-    return this._client.get<User[]>('https://localhost:7134/api/Users');
+    console.log(values);
+    
+    return this._client.post<ConnectedUsers>('https://localhost:7134/api/Users/register',values); 
   }
 
-  public post(myvalue:string) : Observable<User>
+  public login(myvalue:LoginUsers) : Observable<ConnectedUsers>
   {
-    return this._client.post<User>('https://localhost:7134/api/Users', { value : myvalue });
+    console.log(myvalue);
+    
+    return this._client.post<ConnectedUsers>('https://localhost:7134/api/Users/login', myvalue); 
   }
+
+  
  
 }
 

@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { UserService } from '../../services/user.service';
-import { environment } from '../../environment';
+
 import { HttpClient } from '@angular/common/http';
 import { OnInit } from '@angular/core';
-import { ConnectedUser ,User} from '../../models/user/user.module';
+import { LoginUsers,User} from '../../models/user/user.module';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TagContentType } from '@angular/compiler';
 import { Observable } from 'rxjs';
@@ -17,33 +17,35 @@ import { Observable } from 'rxjs';
 })
 export class ConnectionComponent {
 
-  values!: ConnectedUser[]
+  values: LoginUsers = {pswd:'',email:''}
 
   constructor(private _service:UserService){
 
   }
-    ngOnInite():void
+    ngOnInit():void
     {
-      this._service.get().subscribe(
-        {
-          next:(data) => this.values=data,
-          error:(e) => console.log(e),
-          complete :() => console.log('la valeur est complete')
+      // this._service.get().subscribe(
+      //   {
+      //     next:(data) => this.values=data,
+      //     error:(e) => console.log(e),
+      //     complete :() => console.log('la valeur est complete')
           
           
-        }
-      )
+      //   }
+      // )
     }
-    public send() : void
+    public send()
     {
+      console.log(this.values.email);
+      console.log(this.values.pswd);
+      
       console.log('button déclancher')
-      this._service.post('http://localhost:7134/api/Users').subscribe(
+      this._service.login(this.values).subscribe(
         {
-          next: (content) =>
+          next: () =>
           {
-            console.log(content.email + " est valide"),
-            console.log(content.pswd + "est valide"),
-            this.values.push(content)
+            console.log(this.values.email + " est valide"),
+            console.log(this.values.pswd + "est valide")
             
           },
           error : (e) => console.log(e)
