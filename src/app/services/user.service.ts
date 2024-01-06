@@ -6,6 +6,9 @@ import { ConnectedUsers, LoginUsers ,} from '../models/user/user.module';
 import { Observable } from 'rxjs';
 import { HttpHandler } from '@angular/common/http';
 import { User } from '../models/user/user.module';
+import {jwtDecode } from 'jwt-decode';
+
+
 
 
 
@@ -21,7 +24,6 @@ export class UserService {
   { 
 
   }
-
   public register(values:User) : Observable<ConnectedUsers>
   {
     console.log(values);
@@ -34,16 +36,20 @@ export class UserService {
     console.log(myvalue);
     
     return this._client.post<ConnectedUsers>('https://localhost:7134/api/Users/login', myvalue); 
+    //! pipe 
+    
   }
 
   IsConnect()
   {
     this.mySubject.next(this.isConnect)
+   
   }
   connected()
   {
     this.isConnect =true
     this.IsConnect()
+    
   }
   disconnect()
   {
@@ -51,6 +57,7 @@ export class UserService {
     this.IsConnect()
   }
 
+  //! local storage ici  / Fichier Guard / json stringify 
   
  
 }

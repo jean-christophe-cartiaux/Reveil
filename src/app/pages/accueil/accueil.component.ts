@@ -11,8 +11,7 @@ import { Router } from '@angular/router';
 export class AccueilComponent {
 
 
-  isConnect:boolean =false
-  mySubject:Subject<boolean> = new Subject<boolean>()
+
   values: LoginUsers = {pswd:'',email:''}
 
   constructor(private _service:UserService,private route:Router){
@@ -46,18 +45,5 @@ export class AccueilComponent {
       )
       
     }
-    IsConnect()
-    {
-      this.mySubject.next(this.isConnect)
-    }
-    connected()
-    {
-      this.isConnect =true
-      this.IsConnect()
-    }
-    disconnect()
-    {
-      this.isConnect = false
-      this.IsConnect()
-    }
+
 }
